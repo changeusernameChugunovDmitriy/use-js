@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title{
+    text-align: center;
+}
+
+.slider-container{
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider{
+    display: flex;
+    width: 600px;
+    height: 400px;
+    transition: transform 0.35s ease-in-out;
+}
+
+.slide>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 400px;
+}
+
+.prev-btn, .next-btn{
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    border: none;
+    font-size: 24px;
+    background: transparent;
+    color: rgb(29, 89, 141);
+}
+
+.prev-btn{
+    left: 10px;
+}
+.next-btn{
+    right: 10px;
+}
+
+
+/* Accordion */
+
+.acc-container{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.accordion{
+    padding: 20px 50px;
+    border: 1px dotted #bb2f2f;
+}
+
+.panel{
+    padding: 0px 30px;
+    border: 1px solid black;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.accordion:hover{
+    background-color: bisque;
+}
+
+/* Burger */
+
+.menu{
+    display: block;
+    width: 320px;
+    height: 100%;
+    background-color: #bb2f2f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+}
+
+.menu .menu-container{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.menu-burger__header{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    background-color: black;
+    position: absolute;
+    left: calc(100%);
+    top: 10px;
+    cursor: pointer;
+}
+
+.menu-burger__header::before,
+.menu-burger__header>span,
+.menu-burger__header::after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    transition-duration: .3s;
+    transition-timing-function: ease;
+}
+
+.menu-burger__header::before{
+    top: calc(50% - 8px);
+    transition-property: top, transform;
+}
+
+.menu.active{
+    transform: translateX(0);
+}
+
+.menu.active .menu-burger__header::before{
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu.active .menu-burger__header::after{
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.menu.active .menu-burger__header>span{
+    opacity: 0;
+}
+
+
+/* Tabs */
+.tabs{
+    padding: 50px;
+    border: 2px solid #bb2f2f;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 300px;
+}
+.tabs__btn{
+    padding: 10px;
+    background-color: antiquewhite;
+}
+
+.tabs__block:not(._active){
+    display: none;
+}
+
+.tabs__btn:not(._active){
+    background-color: aqua;
+}
+
+
+/* dino */
+
+.game{
+    width: 600px;
+    height: 200px;
+    border-bottom: 2px solid black;
+    margin: auto;
+    margin-bottom: 200px;
+}
+
+.dino{
+    width: 50px;
+    height: 50px;
+    background: url(./dino.png) no-repeat center center/ cover;
+    position: relative;
+    top: 150px;
+}
+
+
+.cactus{
+    width: 20px;
+    height: 40px;
+    background: url(./cactus.png) no-repeat center center/ cover;
+    position: relative;
+    top: 110px;
+    left: 565px;
+    animation: cactusMove 3s infinite linear;
+}
+
+@keyframes cactusMove {
+    0%{ left:580px;}
+    100%{ left: -50px;}
+
+}
+
+.jump{
+    animation: dinoJump 0.5s linear;
+}
+
+@keyframes dinoJump {
+    0%{
+        top:150px
+    }
+    50%{
+        top: 80px;
+    }
+    100%{
+        top: 150px;
+    }
+}
